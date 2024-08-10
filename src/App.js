@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import BotCollection from "./components/BotCollection";
 import YourBotArmy from "./components/YourBotArmy";
-import NavBar from "./components/NavBar";
+import Header from "./components/Header";
+// import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 
 function App() {
   const [army, setArmy] = useState([]);
@@ -34,7 +36,8 @@ function App() {
 
   return (
     <Router>
-      <NavBar />
+      <Header />
+      {/* <NavBar /> */}
       <Routes>
         <Route
           exact
@@ -47,6 +50,7 @@ function App() {
         />
       </Routes>
       {error && <div className="error">{error}</div>}
+      <Footer />
     </Router>
   );
 }
