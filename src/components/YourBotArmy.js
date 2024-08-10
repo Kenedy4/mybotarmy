@@ -1,26 +1,13 @@
-import React, { useState } from "react";
-import Bot from "./Bot";
+import React from "react";
+import BotCard from "./BotCard";
 
-function YourBotArmy() {
-  const [army, setArmy] = useState([]);
-
-  const handleRemoveBot = (botId) => {
-    setArmy(army.filter((bot) => bot.id !== botId));
-  };
-
-  const handleDischargeBot = (botId) => {
-    fetch(`http://localhost:8001/bots/${botId}`, { method: "DELETE" }).then(
-      () => handleRemoveBot(botId)
-    );
-  };
-
+function YourBotArmy({ army, dischargeBot }) {
   return (
     <div className="your-bot-army">
+      <h2>Your Bot Army</h2>
       {army.map((bot) => (
         <div key={bot.id}>
-          <Bot bot={bot} />
-          <button onClick={() => handleRemoveBot(bot.id)}>Remove</button>
-          <button onClick={() => handleDischargeBot(bot.id)}>Discharge</button>
+          <BotCard bot={bot} onDischarge={() => dischargeBot(bot.id)} />
         </div>
       ))}
     </div>

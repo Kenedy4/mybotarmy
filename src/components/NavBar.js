@@ -6,13 +6,10 @@ function NavBar() {
     <nav>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/">Bot Collection</Link>
         </li>
         <li>
           <Link to="/your-bot-army">Your Bot Army</Link>
-        </li>
-        <li>
-          <Link to="/contact">Contact Us</Link>
         </li>
       </ul>
     </nav>
